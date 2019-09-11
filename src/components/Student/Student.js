@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
+import axios from "axios";
 
 export default class Student extends Component {
   constructor() {
-    super() 
-      this.state = {
-        studentInfo: {}
-      };
+    super()
+    this.state = {
+      studentInfo: {}
+    };
 
   }
 
-  componentDidMount () {
-    return axio.get('http://localhost:3005/students/${this.props.match.params.id}').then (results => {
-      this.setState({
-        studentInfo: results.data
+  componentDidMount() {
+    return axios
+      .get(`http://localhost:3005/students/${this.props.match.params.id}`)
+      .then(results => {
+        this.setState({
+          studentInfo: results.data
+        });
       });
-    });
 
   }
 
